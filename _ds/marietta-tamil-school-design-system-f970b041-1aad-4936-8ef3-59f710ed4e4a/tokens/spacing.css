@@ -1,0 +1,20 @@
+/* ============================================================
+   SPACING & LAYOUT — Marietta Tamil School
+   8px base rhythm: 8 16 24 32 48 64 96
+   ============================================================ */
+:root {
+  --space-1: 0.5rem;   /* 8 */
+  --space-2: 1rem;     /* 16 */
+  --space-3: 1.5rem;   /* 24 */
+  --space-4: 2rem;     /* 32 */
+  --space-5: 3rem;     /* 48 */
+  --space-6: 4rem;     /* 64 */
+  --space-7: 6rem;     /* 96 */
+
+  /* Container widths */
+  --container-sm: 640px;
+  --container-md: 880px;
+  --container-lg: 1120px;
+  --container-xl: 1280px;
+  --gutter: var(--space-3);
+}

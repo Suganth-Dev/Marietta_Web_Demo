@@ -1,0 +1,124 @@
+/* Marietta Tamil School — combined design tokens (colors, type, spacing, effects, base) */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+
+:root {
+  /* Brand base */
+  --maroon: #7A1F3D; --gold: #D4A64F; --sage: #7E9B76;
+  --ivory: #F9F7F2; --gray: #F4F4F4; --charcoal: #2B2B2B;
+
+  /* Maroon scale */
+  --maroon-50:#F6E9EE; --maroon-100:#EBCAD6; --maroon-200:#D89BB0; --maroon-300:#C06D8B;
+  --maroon-400:#A24566; --maroon-500:#7A1F3D; --maroon-600:#671833; --maroon-700:#531228;
+  --maroon-800:#3D0D1E; --maroon-900:#2A0915;
+  /* Gold scale */
+  --gold-50:#FBF4E6; --gold-100:#F5E5C4; --gold-200:#EBCD93; --gold-300:#E0B767;
+  --gold-400:#D4A64F; --gold-500:#BE8E38; --gold-600:#9C722B; --gold-700:#785721;
+  --gold-800:#553D17; --gold-900:#38280F;
+  /* Sage scale */
+  --sage-50:#EEF2EC; --sage-100:#D7E0D2; --sage-200:#B6C7AE; --sage-300:#97AE8C;
+  --sage-400:#7E9B76; --sage-500:#65805D; --sage-600:#50674A; --sage-700:#3D4F39;
+  --sage-800:#2A3727; --sage-900:#1B231A;
+  /* Neutral scale */
+  --neutral-0:#FFFFFF; --neutral-50:#F9F7F2; --neutral-100:#F2EFE8; --neutral-200:#E6E1D6;
+  --neutral-300:#D4CEC1; --neutral-400:#ABA499; --neutral-500:#837D73; --neutral-600:#5E5950;
+  --neutral-700:#45413A; --neutral-800:#2F2C27; --neutral-900:#2B2B2B;
+  /* Semantic status */
+  --success:#4F8A5B; --success-soft:#E4F0E5; --warning:#C9892B; --warning-soft:#FAEFD7;
+  --error:#B3372F; --error-soft:#F7E2E0; --info:#3E6E8E; --info-soft:#E1ECF2;
+
+  /* Aliases */
+  --color-primary: var(--maroon-500); --color-primary-hover: var(--maroon-600); --color-primary-active: var(--maroon-700);
+  --color-primary-contrast:#FFFFFF; --color-secondary: var(--gold-400); --color-secondary-hover: var(--gold-500);
+  --color-secondary-contrast: var(--charcoal); --color-accent: var(--sage-400);
+  --surface-page: var(--ivory); --surface-card: var(--neutral-0); --surface-raised: var(--neutral-0);
+  --surface-sunken: var(--neutral-100); --surface-inverse: var(--maroon-800);
+  --surface-gold-wash: var(--gold-50); --surface-maroon-wash: var(--maroon-50); --surface-sage-wash: var(--sage-50);
+  --text-strong: var(--charcoal); --text-body: var(--neutral-800); --text-muted: var(--neutral-500);
+  --text-on-primary:#FFFFFF; --text-on-dark: var(--ivory); --text-link: var(--maroon-500);
+  --border-subtle: var(--neutral-200); --border-default: var(--neutral-300); --border-strong: var(--neutral-400);
+  --border-gold: var(--gold-300);
+
+  /* Type */
+  --font-heading:'Poppins',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --font-body:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --font-accent:'Playfair Display',Georgia,'Times New Roman',serif;
+
+  /* Spacing */
+  --space-1:.5rem; --space-2:1rem; --space-3:1.5rem; --space-4:2rem; --space-5:3rem; --space-6:4rem; --space-7:6rem;
+  --container-sm:640px; --container-md:880px; --container-lg:1120px; --container-xl:1280px;
+
+  /* Radii */
+  --radius-sm:8px; --radius-md:16px; --radius-lg:24px; --radius-xl:32px; --radius-pill:999px;
+  /* Shadows */
+  --shadow-xs:0 1px 2px rgba(43,43,43,.06); --shadow-sm:0 2px 8px rgba(43,43,43,.06);
+  --shadow-md:0 6px 20px rgba(43,43,43,.08); --shadow-lg:0 16px 40px rgba(43,43,43,.10);
+  --shadow-gold:0 8px 24px rgba(122,31,61,.14);
+  --ring:0 0 0 3px rgba(122,31,61,.25); --ring-gold:0 0 0 3px rgba(212,166,79,.35);
+  --ease-out:cubic-bezier(.22,.61,.36,1); --ease-in-out:cubic-bezier(.65,0,.35,1);
+  --dur-fast:140ms; --dur-base:220ms; --dur-slow:360ms;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin:0; font-family: var(--font-body); font-size:16px; line-height:1.55;
+  color: var(--text-body); background: var(--surface-page);
+  -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
+}
+
+/* ---- Scroll fix: the DC runtime pins html/body/#dc-root/.sc-host to height:100%
+   with overflow:visible, which traps a long page's content with no scrollbar.
+   Keep the frame at viewport height but make it a real scroll container, and let
+   the inner wrappers grow with content. This restores scrolling AND the sticky header. ---- */
+html, body { height: 100% !important; overflow-y: auto !important; }
+#dc-root, #dc-root > .sc-host { height: auto !important; min-height: 100%; overflow: visible !important; }
+h1,h2,h3,h4,h5 { font-family: var(--font-heading); color: var(--text-strong); line-height:1.15; letter-spacing:-0.02em; margin:0; }
+p { margin:0; text-wrap: pretty; }
+
+@keyframes mtsFadeUp { from { opacity:0; transform: translateY(16px);} to { opacity:1; transform: translateY(0);} }
+@keyframes mtsFadeIn { from { opacity:0;} to { opacity:1;} }
+@keyframes mtsScaleIn { from { opacity:0; transform: scale(.96);} to { opacity:1; transform: scale(1);} }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}
+::selection { background: var(--maroon-100); color: var(--maroon-800); }
+
+/* ---- Responsive layout utilities (structure only; all visual styling stays inline) ---- */
+.mts-wrap { max-width: var(--container-xl); margin: 0 auto; padding-left: 32px; padding-right: 32px; width: 100%; }
+.mts-wrap-md { max-width: var(--container-md); margin: 0 auto; padding-left: 32px; padding-right: 32px; width: 100%; }
+.mts-wrap-lg { max-width: var(--container-lg); margin: 0 auto; padding-left: 32px; padding-right: 32px; width: 100%; }
+.mts-grid-4 { display: grid; gap: 20px; grid-template-columns: repeat(4, 1fr); }
+.mts-grid-3 { display: grid; gap: 24px; grid-template-columns: repeat(3, 1fr); }
+.mts-grid-2 { display: grid; gap: 24px; grid-template-columns: 1fr 1fr; }
+.mts-hero { display: grid; gap: 48px; grid-template-columns: 1.05fr 0.95fr; align-items: center; }
+.mts-split { display: grid; gap: 28px; grid-template-columns: 1.1fr 0.9fr; align-items: start; }
+.mts-show-mobile { display: none; }
+.mts-nav-burger { display: none; }
+.mts-reveal { animation: mtsFadeUp 0.6s var(--ease-out) both; }
+
+@media (max-width: 1040px) {
+  .mts-nav-desktop { display: none !important; }
+  .mts-nav-burger { display: inline-flex !important; }
+}
+
+@media (max-width: 1000px) {
+  .mts-grid-4 { grid-template-columns: repeat(2, 1fr); }
+  .mts-split { grid-template-columns: 1fr; }
+}
+@media (max-width: 760px) {
+  .mts-wrap, .mts-wrap-md, .mts-wrap-lg { padding-left: 20px; padding-right: 20px; }
+  .mts-grid-3 { grid-template-columns: 1fr; }
+  .mts-grid-2 { grid-template-columns: 1fr; }
+  .mts-grid-4 { grid-template-columns: 1fr 1fr; }
+  .mts-hero { grid-template-columns: 1fr; gap: 28px; }
+  .mts-hide-mobile { display: none !important; }
+  .mts-show-mobile { display: flex !important; }
+  .mts-h1 { font-size: 38px !important; line-height: 1.1 !important; }
+  .mts-display { font-size: 32px !important; }
+  .mts-h2 { font-size: 28px !important; }
+  .mts-sec { padding-top: 40px !important; padding-bottom: 40px !important; }
+}
+@media (max-width: 480px) {
+  .mts-grid-4 { grid-template-columns: 1fr; }
+}
